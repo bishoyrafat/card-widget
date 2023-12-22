@@ -1,5 +1,5 @@
 <div class="header">
-  <div class="header__title">Kalli</div>
+  <div class="header__title">{{product?.title}}</div>
   <div class="header__back">
     <i-feather name="arrow-left" class="header__back-icon"></i-feather>
     Back
@@ -7,6 +7,6 @@
   <div class="header__cart">
     <i-feather name="shopping-cart" class="header__cart-icon">
     </i-feather>
-    <span class="header__cart-counter">2</span>
+    <span class="header__cart-counter">{{cart.length}}</span>
   </div>
 </div>

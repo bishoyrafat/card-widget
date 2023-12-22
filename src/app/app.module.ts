@@ -8,6 +8,11 @@ import { CardHeaderComponent } from './card/card-header/card-header.component';
 import { IconsModule } from './shared/icons/icons.module';
 import { CardProductViewComponent } from './card/card-product-view/card-product-view.component';
 import { CtaComponent } from './card/cta/cta.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SafePipe } from './shared/pipes/safe.pipe';
+
+
 
 @NgModule({
   declarations: [
@@ -15,12 +20,17 @@ import { CtaComponent } from './card/cta/cta.component';
     CardMainViewComponent,
     CardHeaderComponent,
     CardProductViewComponent,
-    CtaComponent
+    CtaComponent,
+    SafePipe,
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    IconsModule
+    IconsModule,
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

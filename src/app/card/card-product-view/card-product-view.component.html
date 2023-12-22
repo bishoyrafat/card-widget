@@ -1,30 +1,42 @@
 <main class="product">
   <div class="product__info">
-    <h2 class="product__category">Men's Road Running Shoes</h2>
-    <p class="product__title">Nike Structure 25</p>
-    <p class="product__desc">Running sneakers with thin elastic laces</p>
+    <h2 class="product__category">{{ product?.category }}</h2>
+    <p class="product__title">{{ product?.title }}</p>
+    <p class="product__desc">{{ product?.description }}</p>
 
     <ul class="product__list">
-      <li><img src="../../../assets/images/1/black/1.jpg" alt="" /></li>
-      <li><img src="../../../assets/images/1/black/2.jpg" alt="" /></li>
-      <li><img src="../../../assets/images/1/black/3.jpg" alt="" /></li>
-      <li><img src="../../../assets/images/1/black/4.jpg" alt="" /></li>
-      <li><img src="../../../assets/images/1/black/5.jpg" alt="" /></li>
+      <ng-container *ngFor="let images of productImages">
+        <li *ngFor="let image of images.images">
+          <img
+            [src]="'../../../assets/' + image"
+            alt="product?.title "
+            (click)="getImage(image)"
+          />
+        </li>
+      </ng-container>
     </ul>
   </div>
   <div class="product__image">
-    <img src="../../../assets/images/1/black/1.jpg" alt="" />
+    <img
+      [src]=" (selectedImg$|async) ?? '../../../assets/' + productImages?.[0]?.images?.[0] "
+      alt="product?.title "
+    />
   </div>
 
   <div class="product__details">
     <div class="product__size">
       <h3>Size</h3>
       <div class="product__size-box">
-        <span class="product__size-number selected">40</span>
-        <span class="product__size-number">40</span>
-        <span class="product__size-number">40</span>
-        <span class="product__size-number unAvailabe">40</span>
-        <span class="product__size-number">40</span>
+        <ng-container *ngFor="let item of product?.size; let i = index">
+          <a
+
+            [class.unAvailabe]="item.available == false"
+            class="product__size-number"
+            (click)="detectSize(item.size)"
+            [class.selected]="selectedSize == item.size"
+            >{{ item.size }}</a
+          >
+        </ng-container>
       </div>
     </div>
     <div class="product__review">
@@ -39,15 +51,19 @@
     </div>
     <div class="product__price">
       <h3>Price</h3>
-      <div>$450</div>
+      <div>{{ product?.price | currency }}</div>
     </div>
     <div class="product__color-box">
       <h3>Colour</h3>
       <ul>
-        <li class="product__color-list selected"></li>
-        <li class="product__color-list"></li>
-        <li class="product__color-list"></li>
-        <li class="product__color-list"></li>
+        <ng-container *ngFor="let color of colors">
+          <li
+            [style.background-color]="color"
+            class="product__color-list selected"
+            [class.selected]="selectedColor == color.hex"
+            (click)="detectColor(color.hex,color.name)"
+          ></li>
+        </ng-container>
       </ul>
     </div>
   </div>
