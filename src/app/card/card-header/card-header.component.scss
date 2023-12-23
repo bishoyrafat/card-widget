@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  user-select: none;
 
   &__back {
     font-size: 0.8rem;
@@ -10,6 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 
     &-icon {
       height: 1rem;
@@ -37,4 +39,29 @@
     }
 
   }
+}
+
+@media(max-width:600px){
+  .header{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 1fr auto 1fr;
+    justify-content: space-between;
+    row-gap: 1rem;
+
+    &__title{
+      grid-row-start: 3;
+      grid-row-end: 4;
+      grid-column: 1 / 2;
+    }
+
+    &__back{
+      justify-content: start;
+    }
+
+    &__cart{
+      justify-content: end;
+    }
+  }
+
 }

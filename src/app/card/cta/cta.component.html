@@ -1,14 +1,36 @@
 <section class="cta">
-  <div class="cta__video">
-    <i-feather name="play-circle"></i-feather> Play Video
+  <div class="cta__video" >
+    <i-feather name="play-circle" (click)="isOpened()"></i-feather>
+    <span  (click)="isOpened()">Play Video</span>
+    <div class="cta__video-box" (click)="isOpened()" *ngIf="isOpen">
+      <i-feather name="x" class="x" (click)="isOpened()"></i-feather>
+      <iframe
+        width="50%"
+        height="50%"
+        style="
+          left: 50%;
+          top: 50%;
+          position: absolute;
+          transform: translate(-50%, -50%);
+        "
+        [src]="product?.video | safe"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
   </div>
   <div class="cta__arrows">
-    <i-feather name="arrow-left" class="arrow"></i-feather>&nbsp;&nbsp;
-    <i-feather name="arrow-right" class="arrow"></i-feather>
+    <i-feather name="arrow-left" [class.disable]="currentProduct===1" class="arrow" title="Previous" (click)="prevProduct()"></i-feather>&nbsp;&nbsp;
+    <i-feather name="arrow-right" [class.disable]="currentProduct===productsNumber" class="arrow" title="Next" (click)="nextProduct()"></i-feather>
   </div>
-  <div class="cta__navigation">01 - - - 06</div>
+  <div class="cta__navigation">
+    {{1 | number:'2.0-0'}}
+    <span class="item" [class.active]="currentProduct == i+1" *ngFor="let item of products;let i = index" (click)="detectIndicator(i+1,item)"></span>
+    {{productsNumber | number:'2.0-0'}}
+
+  </div>
   <div class="cta__cart">
-    <button>ADD TO CART</button>
-    <i-feather name="heart"></i-feather>
+    <button (click)="addToCart(product)" >ADD TO CART</button>
+    <i-feather name="heart" [class.heart]="heart"  (click)="heart = !heart"></i-feather>
   </div>
 </section>
