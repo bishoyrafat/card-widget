@@ -1,5 +1,5 @@
 <div class="header">
-  <div class="header__title">{{product?.title}}</div>
+  <div class="header__title" [@bounce]="bounce">{{product?.title}}</div>
   <div class="header__back">
     <i-feather name="arrow-left" class="header__back-icon"></i-feather>
     Back

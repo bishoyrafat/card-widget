@@ -11,15 +11,17 @@
             [src]="'../../../assets/' + image"
             alt="product?.title "
             (click)="getImage(image)"
+            [@bounce]="bounce"
           />
         </li>
       </ng-container>
     </ul>
   </div>
-  <div class="product__image">
+  <div class="product__image" [@rotate]="rotate">
     <img
       [src]=" (selectedImg$|async) ?? '../../../assets/' + productImages?.[0]?.images?.[0] "
       alt="product?.title "
+
     />
   </div>
 
