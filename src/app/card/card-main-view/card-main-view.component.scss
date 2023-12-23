@@ -1,16 +1,15 @@
-.card{
+.card {
   width: 80%;
-  height: 70vh;
   background-color: #f6f6f6;
   border: 20px solid #e1e1e1;
-  margin:6rem auto;
-  padding: 2rem ;
-
+  margin: 6rem auto;
+  padding: 2rem 2rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
 }
 
-
-.view{
-
+.view {
   margin-top: 2rem;
-
 }
