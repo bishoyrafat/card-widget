@@ -9,10 +9,10 @@ import { SharedService } from 'src/app/shared/sevices/shared.service';
 })
 export class CardHeaderComponent implements OnInit {
   product!: ICard | undefined;
-  cart: any;
+  cart: any=[]
   constructor(private sharedService: SharedService) {}
   ngOnInit(): void {
-    this.cart = JSON.parse(localStorage.getItem('cart')!);
+    this.cart = JSON.parse(localStorage.getItem('cart')!) ?? [];
     this.sharedService.cartCounter$.subscribe((data) => {
       this.cart = data;
     });
