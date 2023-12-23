@@ -16,19 +16,19 @@ export class CardProductViewComponent implements OnInit {
   colors: IColor[] | undefined = [];
   selectedSize!: number;
   selectedColor!: string;
-  currentProduct!:number
+  currentProduct!: number;
+  rating!: number;
+  starsArr:any[]=[]
 
   constructor(
     private cardService: CardService,
-    private sharedService: SharedService,
+    private sharedService: SharedService
   ) {}
   ngOnInit(): void {
-    this.sharedService.currentProduct$.subscribe(prod => {
-console.log(prod);
-
-this.getProductsById(prod);
-      this.currentProduct = prod
-    })
+    this.sharedService.currentProduct$.subscribe((prod) => {
+      this.getProductsById(prod);
+      this.currentProduct = prod;
+    });
   }
 
   getProductsById(id: number) {
@@ -41,6 +41,7 @@ this.getProductsById(prod);
 
       this.getProductByColor(data, 'red');
       this.getAllColors();
+      this.getStars()
     });
   }
 
@@ -62,4 +63,10 @@ this.getProductsById(prod);
     this.selectedColor = colorHex;
     this.getProductByColor(this.product, colorName);
   }
+
+  getStars() {
+    this.rating = this.product?.rate!
+    this.starsArr = new Array(Math.floor(this.product?.rate!) ).fill(0)
+  }
+
 }

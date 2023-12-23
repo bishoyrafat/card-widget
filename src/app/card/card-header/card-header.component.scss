@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  user-select: none;
 
   &__back {
     font-size: 0.8rem;
@@ -10,6 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 
     &-icon {
       height: 1rem;

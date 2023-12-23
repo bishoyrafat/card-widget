@@ -29,24 +29,20 @@
       <div class="product__size-box">
         <ng-container *ngFor="let item of product?.size; let i = index">
           <a
-
             [class.unAvailabe]="item.available == false"
             class="product__size-number"
             (click)="detectSize(item.size)"
             [class.selected]="selectedSize == item.size"
-            >{{ item.size }}</a
-          >
+            >{{ item.size }}
+        </a>
         </ng-container>
       </div>
     </div>
     <div class="product__review">
       <h3>Reviews</h3>
       <ul>
-        <li><i-feather name="star" class="star"></i-feather></li>
-        <li><i-feather name="star" class="star"></i-feather></li>
-        <li><i-feather name="star" class="star"></i-feather></li>
-        <li><i-feather name="star" class="star"></i-feather></li>
-        <li><i-feather name="star" class="star"></i-feather></li>
+        <i class="fa fa-star" style="font-size:0.8rem" *ngFor="let star of starsArr "></i>
+        <i class="fa fa-star-half-full" style="font-size:0.8rem" *ngIf="rating % 1 != 0 "></i>
       </ul>
     </div>
     <div class="product__price">

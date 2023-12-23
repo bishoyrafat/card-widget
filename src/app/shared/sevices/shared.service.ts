@@ -8,5 +8,6 @@ import { ICard } from '../models/card';
 export class SharedService {
   data = new Subject<ICard | undefined>()
   currentProduct$ = new BehaviorSubject<number>(1)
+  cartCounter$ = new Subject()
   constructor() { }
 }

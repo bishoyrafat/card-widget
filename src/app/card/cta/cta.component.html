@@ -25,7 +25,7 @@
   </div>
   <div class="cta__navigation">
     {{1 | number:'2.0-0'}}
-    <span class="item" [class.active]="currentProduct == i+1" *ngFor="let item of products;let i = index" (click)="detectIndicator(i+1)"></span>
+    <span class="item" [class.active]="currentProduct == i+1" *ngFor="let item of products;let i = index" (click)="detectIndicator(i+1,item)"></span>
     {{productsNumber | number:'2.0-0'}}
 
   </div>

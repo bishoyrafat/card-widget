@@ -60,9 +60,11 @@ export class CtaComponent implements OnInit {
     }
   }
 
-  detectIndicator(i: number) {
+  detectIndicator(i: number,item:ICard) {
     this.sharedService.currentProduct$.next(i);
   }
+
+
 
   addToCart(product: ICard | undefined) {
     if ('cart' in localStorage) {
@@ -74,11 +76,13 @@ export class CtaComponent implements OnInit {
       } else {
         this.cartArr.push({ ...product, count: true });
         localStorage.setItem('cart', JSON.stringify(this.cartArr));
+        this.sharedService.cartCounter$.next(this.cartArr)
+
       }
     } else {
       this.cartArr.push({ ...product, count: true });
       localStorage.setItem('cart', JSON.stringify(this.cartArr));
-
+      this.sharedService.cartCounter$.next(this.cartArr)
     }
 
   }

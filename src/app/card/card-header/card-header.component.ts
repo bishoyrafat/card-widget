@@ -12,13 +12,13 @@ export class CardHeaderComponent implements OnInit {
   cart: any;
   constructor(private sharedService: SharedService) {}
   ngOnInit(): void {
+    this.cart = JSON.parse(localStorage.getItem('cart')!);
+    this.sharedService.cartCounter$.subscribe((data) => {
+      this.cart = data;
+    });
+
     this.sharedService.data.subscribe((data) => {
       this.product = data;
     });
-
-
-
-      this.cart = JSON.parse(localStorage.getItem('cart')!);
-
   }
 }
