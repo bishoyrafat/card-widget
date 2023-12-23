@@ -1,3 +1,6 @@
+![Web capture_24-12-2023_04250_localhost](https://github.com/bishoyrafat/card-widget/assets/77299182/631d1bd8-bb89-4e6c-acc0-6dcc1eb2cfc5)
+![Web capture_24-12-2023_0405_localhost](https://github.com/bishoyrafat/card-widget/assets/77299182/f338ddcf-ef5f-4767-969f-95af1fbcc1a1)
+
 # Card
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.10.
@@ -25,3 +28,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
