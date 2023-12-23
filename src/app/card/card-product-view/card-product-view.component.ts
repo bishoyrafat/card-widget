@@ -3,13 +3,24 @@ import { BehaviorSubject, Observable, Observer, Subject, retry } from 'rxjs';
 import { CardService } from './../card.service';
 import { Component, OnInit } from '@angular/core';
 import { ICard, IColor } from 'src/app/shared/models/card';
+import { trigger, transition, useAnimation } from '@angular/animations';
+import { bounce, bounceInDown, heartBeat, rollIn, rotateInDownLeft } from 'ng-animate';
 
 @Component({
   selector: 'app-card-product-view',
   templateUrl: './card-product-view.component.html',
   styleUrls: ['./card-product-view.component.scss'],
+  animations: [
+    trigger('bounce', [transition('void <=> *', useAnimation(bounceInDown))]),
+    trigger('rotate', [transition('void <=> *', useAnimation(rollIn))]),
+
+
+  ],
 })
 export class CardProductViewComponent implements OnInit {
+  bounce: any;
+  rotate: any;
+
   product: ICard | undefined;
   productImages: IColor[] | undefined;
   selectedImg$!: BehaviorSubject<string | undefined>;
