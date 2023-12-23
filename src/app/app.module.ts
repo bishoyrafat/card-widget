@@ -10,6 +10,7 @@ import { CardProductViewComponent } from './card/card-product-view/card-product-
 import { CtaComponent } from './card/cta/cta.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SafePipe } from './shared/pipes/safe.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -29,6 +30,7 @@ import { SafePipe } from './shared/pipes/safe.pipe';
     AppRoutingModule,
     IconsModule,
     HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
